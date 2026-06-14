@@ -1,20 +1,20 @@
-contract ReputationScoring:
+# v0.2.16
+# { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
+
+from genlayer import *
+
+class ReputationScoring(gl.Contract):
+
+    scores: TreeMap[Address, u256]
 
     def __init__(self):
-        self.scores = {}
+        pass
 
-    def record_action(self, user, action_type, weight):
-        if user not in self.scores:
-            self.scores[user] = 0
+    @gl.public.write
+    def record_action(self, user: Address, value: u256) -> None:
+        current = self.scores.get(user, u256(0))
+        self.scores[user] = current + value
 
-        if action_type == "positive":
-            self.scores[user] += weight * 2
-        elif action_type == "negative":
-            self.scores[user] -= weight * 3
-        else:
-            self.scores[user] += weight
-
-        return self.scores[user]
-
-    def get_score(self, user):
-        return self.scores.get(user, 0)
+    @gl.public.view
+    def get_score(self, user: Address) -> u256:
+        return self.scores.get(user, u256(0))
