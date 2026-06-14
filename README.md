@@ -19,6 +19,11 @@ GenLayer Testnet
 ## Author
 
 cryptofunny2021
+
+## Main Ecosystem Repository
+
+https://github.com/cryptofunny2021/genlayer-socialfi-ecosystem
+
 ## Related Contracts
 
 This contract is part of a larger GenLayer ecosystem.
