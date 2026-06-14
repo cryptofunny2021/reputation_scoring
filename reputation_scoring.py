@@ -11,10 +11,13 @@ class ReputationScoring(gl.Contract):
         pass
 
     @gl.public.write
-    def record_action(self, user: Address, value: u256) -> None:
+    def record_action(self, value: u256) -> None:
+        user = gl.message.sender_address
+
         current = self.scores.get(user, u256(0))
         self.scores[user] = current + value
 
     @gl.public.view
-    def get_score(self, user: Address) -> u256:
+    def my_score(self) -> u256:
+        user = gl.message.sender_address
         return self.scores.get(user, u256(0))
