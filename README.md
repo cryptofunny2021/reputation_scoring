@@ -1,19 +1,21 @@
-# Reputation Scoring Contract
-genlayer-contracts
-This contract tracks user behavior and assigns dynamic reputation scores based on on-chain actions.
+# Reputation Scoring
+
+A GenLayer smart contract for tracking user reputation scores.
 
 ## Features
-- Positive / negative scoring
-- Simple trust system
 
-## Use case
-Web3 reputation & trust layer
+* Store reputation scores on-chain
+* Increase reputation through interactions
+* Retrieve current reputation value
 
-## System Connection
+## Files
 
-This contract is part of a 5-contract ecosystem:
+* contract.py
 
-- Reputation updates trigger token rewards
-- Token balance affects marketplace bidding
-- Disputes can reduce reputation
-- All actions are logged in interaction hub
+## Network
+
+GenLayer Testnet
+
+## Author
+
+cryptofunny2021
